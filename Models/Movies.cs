@@ -12,15 +12,34 @@ namespace YellowBucket1.Models
     {
         [Required]
         public int ID { get; set; }
+
+        [StringLength(60, MinimumLength = 3)]
         [Required, MaxLength(128)]
         [Column(TypeName = "varchar(128)")]
-        public string Title { get; set; }
-        [MaxLength(8)]
+        public string? Title { get; set; }
+
+        [Display(Name = "Release Date")]
+        [DataType(DataType.Date)]
+        public DateTime ReleaseDate { get; set; }
+
+        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
+        [StringLength(30)]
+        [Required, MaxLength(8)]
         [Column(TypeName = "varchar(8)")]
         public string? Rating { get; set; }
+
+        [Range(1, 100)]
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(18, 2)")]
+        public decimal? Price { get; set; }
+
+
+        [StringLength(4096, MinimumLength = 24)]
         [MaxLength(4096)]
         [Column(TypeName = "varchar(4096)")]
         public string? Description { get; set; }
+
+        //Need to clean up the validation by removing the ability to remove null values once the pages are created
         public int? Length { get; set; }
         public int? GenreID { get; set; }
         [Required]
