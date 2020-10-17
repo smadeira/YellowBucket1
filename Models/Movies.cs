@@ -14,7 +14,7 @@ namespace YellowBucket1.Models
         public int ID { get; set; }
         [Required, MaxLength(128)]
         [Column(TypeName = "varchar(128)")]
-        public string Title { get; set; }
+        public string? Title { get; set; }
         [MaxLength(8)]
         [Column(TypeName = "varchar(8)")]
         public string? Rating { get; set; }
