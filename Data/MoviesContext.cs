@@ -23,5 +23,10 @@ namespace YellowBucket1.Data
             modelBuilder.Entity<Inventories>().ToTable("Inventories");
             modelBuilder.Entity<Kiosks>().ToTable("Kiosks");
         }
+
+        public static implicit operator MoviesContext(Movies v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
