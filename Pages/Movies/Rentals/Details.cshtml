@@ -1,0 +1,24 @@
+﻿@page
+@model YellowBucket1.Pages.Movies.Rentals.DetailsModel
+
+
+<div class="flex-container" style="column-gap:15px;grid-row-gap:15px">
+    <div class="card">
+        <img src="@Html.DisplayFor(model => model.Movies.CoverPhoto)" alt="@Html.DisplayNameFor(model => model.Movies.Title)" style="width:480px;height:720px">
+    </div>
+    <div class="card">
+        <h1>@Html.DisplayFor(model => model.Movies.Title)</h1>
+        <p>@Html.DisplayFor(model => model.Movies.Description)</p>
+        <p style="text-align:left">Rating: @Html.DisplayFor(model => model.Movies.Rating)</p>
+        <p style="text-align:left">Length: @Html.DisplayFor(model => model.Movies.Length) minutes</p>
+        <p style="text-align:left">Available on:</p>
+        <p style="text-align:left">@Html.DisplayFor(model => model.Movies.IsBluRay) BluRay </p>
+        <p style="text-align:left">@Html.DisplayFor(model => model.Movies.IsDVD) DVD</p>
+    </div>
+</div>
+<div>
+    <a asp-page="./Index">Back to List</a>
+    <span style="float:right;">
+        <button type="button">Add to Cart</button>
+    </span>
+</div>

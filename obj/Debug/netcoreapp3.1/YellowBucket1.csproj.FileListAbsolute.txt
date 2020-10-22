@@ -176,3 +176,4 @@ C:\Users\Steve\Source\Repos\YellowBucket1\obj\Debug\netcoreapp3.1\YellowBucket1.
 C:\Users\Steve\Source\Repos\YellowBucket1\obj\Debug\netcoreapp3.1\YellowBucket1.pdb
 C:\Users\Steve\Source\Repos\YellowBucket1\obj\Debug\netcoreapp3.1\YellowBucket1.genruntimeconfig.cache
 C:\Users\Steve\Source\Repos\YellowBucket1\obj\Debug\netcoreapp3.1\Razor\Pages\Movies\Rentals\Index.cshtml.g.cs
+C:\Users\Steve\Source\Repos\YellowBucket1\obj\Debug\netcoreapp3.1\Razor\Pages\Movies\Rentals\Details.cshtml.g.cs

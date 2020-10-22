@@ -6,111 +6,31 @@
 
 <h1>Current Rentals</h1>
 @* Created several tables to neatly display current movies available for rent these tables must be updated with links to database(10.12.20 sk) *@
-
-@{ 
-    
-}
-
-<table class="table" cellpadding="1">
-    <tr>
-    <tr>
-        <td>
-            <table class="table" cellpadding="1">
-                <tr>
-                    <td>
-                        <center>
-                            <a href="">
-                                <img src="/images/ghostbusters.jpg" height="420" width="280" />
-                            </a>
-                        </center>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table class="table">
-                            <tr>
-                                <td colspan="2" style="text-align:center">
-                                    <b1 style="font-size: 30px"><strong>Ghostbusters</strong></b1>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align:left">
-                                    PG
-                                </td>
-                                <td style="text-align:right">
-                                    105 min
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </td>
-        <td>
-            <table class="table" cellpadding="1">
-                <tr>
-                    <td>
-                        <center>
-                            <a href="">
-                                <img src="/images/Ghostbusters2.jpg" height="420" width="280" />
-                            </a>
-                        </center>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table class="table">
-                            <tr>
-                                <td colspan="2" style="text-align:center">
-                                    <b1 style="font-size: 30px"><strong>Ghostbusters II</strong></b1>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align:left">
-                                    PG
-                                </td>
-                                <td style="text-align:right">
-                                    108 min
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </td><td>
-    <table class="table" cellpadding="1">
-        <tr>
-            <td>
-                <center>
-                    <a href="">
-                        <img src="/images/DonnieDarko.jpg" height="420" width="280" />
-                    </a>
-                </center>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <table class="table">
-                    <tr>
-                        <td colspan="2" style="text-align:center">
-                            <b1 style="font-size: 30px"><strong>Donnie Darko</strong></b1>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:left">
-                            R
-                        </td>
-                        <td style="text-align:right">
-                            113 min
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-</td>
-
-    </tr>
-</table>
+@* Changed tables to cards inside a flex box.  Added for loop to iterate through each movie in database (10.22.20 sk)*@
 
 
+@*added search bar - not currently working (10.22.20 sk)*@
+<form>
+    <p>
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<div class="flex-container" style="column-gap:15px;grid-row-gap:15px">
+    @foreach (var item in Model.Movies)
+    {
+    <div class="card">
+        <a asp-page="./Details" asp-route-id="@item.ID"><img src="@Html.DisplayFor(modelItem => item.CoverPhoto)" alt="@Html.DisplayFor(modelItem => item.Title)" style="width:360px;height:480px"></a>
+        <div class="container">
+            <h4 style="text-align:center"><b>@Html.DisplayFor(modelItem => item.Title)</b></h4>
+            <p style="text-align:left;">
+                @Html.DisplayFor(modelItem => item.Rating)
+                <span style="float:right;">
+                    @Html.DisplayFor(modelItem => item.Length) min.
+                </span>
+            </p>
+        </div>
+    </div>
+    }
+</div>
