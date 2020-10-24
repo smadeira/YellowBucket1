@@ -1,0 +1,89 @@
+﻿@page
+@model YellowBucket1.Pages.Movies.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Movies</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Movies.Title" class="control-label"></label>
+                <input asp-for="Movies.Title" class="form-control" />
+                <span asp-validation-for="Movies.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.ReleaseDate" class="control-label"></label>
+                <input asp-for="Movies.ReleaseDate" class="form-control" />
+                <span asp-validation-for="Movies.ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.Rating" class="control-label"></label>
+                <input asp-for="Movies.Rating" class="form-control" />
+                <span asp-validation-for="Movies.Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.Price" class="control-label"></label>
+                <input asp-for="Movies.Price" class="form-control" />
+                <span asp-validation-for="Movies.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.Description" class="control-label"></label>
+                <input asp-for="Movies.Description" class="form-control" />
+                <span asp-validation-for="Movies.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.Length" class="control-label"></label>
+                <input asp-for="Movies.Length" class="form-control" />
+                <span asp-validation-for="Movies.Length" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Movies.IsDVD" /> @Html.DisplayNameFor(model => model.Movies.IsDVD)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Movies.IsBluRay" /> @Html.DisplayNameFor(model => model.Movies.IsBluRay)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.CoverPhoto" class="control-label"></label>
+                <input asp-for="Movies.CoverPhoto" class="form-control" />
+                <span asp-validation-for="Movies.CoverPhoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.DeletedAt" class="control-label"></label>
+                <input asp-for="Movies.DeletedAt" class="form-control" />
+                <span asp-validation-for="Movies.DeletedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.CreatedAt" class="control-label"></label>
+                <input asp-for="Movies.CreatedAt" class="form-control" />
+                <span asp-validation-for="Movies.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.UpdatedAt" class="control-label"></label>
+                <input asp-for="Movies.UpdatedAt" class="form-control" />
+                <span asp-validation-for="Movies.UpdatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
