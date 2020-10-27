@@ -33,7 +33,7 @@ namespace YellowBucket1.Pages.Movies.Rentals
             {
                 movies = movies.Where(s => s.Title.Contains(SearchString));
             }
-            Movies = await _context.Movies.ToListAsync();
+            Movies = await movies.ToListAsync();
         }
     }
 }

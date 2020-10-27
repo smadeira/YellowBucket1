@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Steve\\Source\\Repos\\YellowBucket1\\YellowBucket1.csproj": {}
+    "C:\\Users\\Steve\\source\\repos\\YellowBucket1\\YellowBucket1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Steve\\Source\\Repos\\YellowBucket1\\YellowBucket1.csproj": {
+    "C:\\Users\\Steve\\source\\repos\\YellowBucket1\\YellowBucket1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Steve\\Source\\Repos\\YellowBucket1\\YellowBucket1.csproj",
+        "projectUniqueName": "C:\\Users\\Steve\\source\\repos\\YellowBucket1\\YellowBucket1.csproj",
         "projectName": "YellowBucket1",
-        "projectPath": "C:\\Users\\Steve\\Source\\Repos\\YellowBucket1\\YellowBucket1.csproj",
+        "projectPath": "C:\\Users\\Steve\\source\\repos\\YellowBucket1\\YellowBucket1.csproj",
         "packagesPath": "C:\\Users\\Steve\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Steve\\Source\\Repos\\YellowBucket1\\obj\\",
+        "outputPath": "C:\\Users\\Steve\\source\\repos\\YellowBucket1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

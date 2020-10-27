@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1OLxQZ58BCj253/+RBBQeOJZs7ShAeT6woF7jXWFZ1HTJMBnm7EnyqVTfrbQfGKUuZeXRWv94UMqj4jydoXoMw==",
+  "dgSpecHash": "m5YE2n74VS1JmpeZhAELU7IOBn1QYUR3m7xP/uyLQYzL9NEWIXGgK9Xsl1T4o0Z90OmyuwDf471OieibCrumaQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Steve\\Source\\Repos\\YellowBucket1\\YellowBucket1.csproj",
+  "projectFilePath": "C:\\Users\\Steve\\source\\repos\\YellowBucket1\\YellowBucket1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Steve\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Steve\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
