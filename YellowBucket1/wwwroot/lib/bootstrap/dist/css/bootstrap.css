@@ -6962,6 +6962,10 @@ button.bg-dark:focus {
   padding-top: 100%;
 }
 
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
 .flex-row {
   -ms-flex-direction: row !important;
   flex-direction: row !important;

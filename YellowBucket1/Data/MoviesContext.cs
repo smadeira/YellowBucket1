@@ -56,5 +56,10 @@ namespace YellowBucket1.Data
 
             
         }
+
+        public static implicit operator MoviesContext(Movies v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
