@@ -1,0 +1,72 @@
+﻿@page
+@model YellowBucket1.Pages.Movies.Rentals.DetailsModel
+
+
+<h1 style="text-align:center">@Html.DisplayFor(model => model.Movies.Title)</h1>
+<div class="container">
+    <div class="row">
+        <div class="col col-4">
+            <img src="@Html.DisplayFor(model => model.Movies.CoverPhoto)" alt="@Html.DisplayNameFor(model => model.Movies.Title)" style="width:100%;height:auto">
+        </div>
+        <div class="col col-8">
+            @*   fix genre list
+        <p>Genres: </p>
+        <div class="flex-container">
+            @foreach (var item in )
+            {
+                <div class="column">
+                    <p>@Html.DisplayFor(modelItem => item.Genres)</p>
+                </div>
+            }
+        </div>
+            *@
+            <div class="row" style="margin-top:10px">
+                <p>@Html.DisplayFor(model => model.Movies.Description)</p>
+            </div>
+            <div class="row" style="margin-top:100px">
+                Available on:
+            </div>
+            <div class="row" style="margin-top:10px">
+                <div class="col col-2">
+                    @Html.DisplayFor(model => model.Movies.IsBluRay) BluRay
+                </div>
+                <div class="col col-2">
+                    @Html.DisplayFor(model => model.Movies.IsDVD) DVD
+                </div>
+            </div>
+            <div class="row" style="margin-top:10px">
+                <div class="col col-3">
+                    Rating: @Html.DisplayFor(model => model.Movies.Rating)
+                </div>
+                <div class="col col-3">
+                    Length: @Html.DisplayFor(model => model.Movies.Length) minutes
+                </div>
+            </div>
+            <div class="row" style="margin-top:10px">
+                <div class="col col-3">
+                    Price: @Html.DisplayFor(model => model.Movies.Price)
+                </div>
+                <div class="col col-3">
+
+                </div>
+                <div class="col col-3">
+
+                </div>
+                <div class="col col-3">
+                    Date Released: @Html.DisplayFor(model => model.Movies.ReleaseDate)
+                </div>
+            </div>
+            <div class="row" style="margin-top:10px">
+                <a asp-page="./CustomerReviews"> View Customer Reviews</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-page="/Movies/Rentals/Index">Back to List</a>
+    <span style="float:right;">
+        <button type="button">Add to Cart</button>
+    </span>
+</div>

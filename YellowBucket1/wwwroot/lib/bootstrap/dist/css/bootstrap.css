@@ -594,6 +594,10 @@ pre code {
   margin-left: -15px;
 }
 
+.top-buffer {
+    margin-top: 20px;
+}
+
 .no-gutters {
   margin-right: 0;
   margin-left: 0;

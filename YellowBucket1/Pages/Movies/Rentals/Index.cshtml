@@ -4,7 +4,7 @@
     ViewData["Title"] = "Rentals";
 }
 
-<h1>Current Rentals</h1>
+<h1 style="text-align:center">Current Rentals</h1>
 @* Created several tables to neatly display current movies available for rent these tables must be updated with links to database(10.12.20 sk) *@
 @* Changed tables to cards inside a flex box.  Added for loop to iterate through each movie in database (10.22.20 sk)*@
 
@@ -21,7 +21,7 @@
     @foreach (var item in Model.Movies)
     {
     <div class="card">
-        <a asp-page="./Details" asp-route-id="@item.ID"><img src="@Html.DisplayFor(modelItem => item.CoverPhoto)" alt="@Html.DisplayFor(modelItem => item.Title)" style="width:360px;height:480px"></a>
+        <a asp-page="./Details/Index" asp-route-id="@item.ID"><img src="@Html.DisplayFor(modelItem => item.CoverPhoto)" alt="@Html.DisplayFor(modelItem => item.Title)" style="width:360px;height:480px"></a>
         <div class="container">
             <h4 style="text-align:center"><b>@Html.DisplayFor(modelItem => item.Title)</b></h4>
             <p style="text-align:left;">
