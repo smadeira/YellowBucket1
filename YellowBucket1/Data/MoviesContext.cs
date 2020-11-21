@@ -25,6 +25,7 @@ namespace YellowBucket1.Data
         public DbSet<YellowBucket1.Models.Rentals> Rentals { get; set; }
         public DbSet<YellowBucket1.Models.Wishlists> Wishlists { get; set; }
 
+        public DbSet<YellowBucket1.Models.Passwords> Passwords { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,6 +42,8 @@ namespace YellowBucket1.Data
             modelBuilder.Entity<Wishlists>().ToTable("Wishlists");
             modelBuilder.Entity<MoviesGenres>().ToTable("MoviesGenres");
 
+            modelBuilder.Entity<Passwords>().ToTable("Passwords");
+
             modelBuilder.Entity<MoviesGenres>()
             .HasOne(p => p.Movies)
             .WithMany(b => b.MoviesGenres)
@@ -54,10 +57,19 @@ namespace YellowBucket1.Data
             modelBuilder.Entity<MoviesGenres>()
         .HasKey(c => new { c.MoviesID, c.GenresID });
 
-            
+            modelBuilder.Entity<Passwords>()
+            .HasKey(c => new {
+                c.Username
+            });
+
         }
 
-        public static implicit operator MoviesContext(Movies v)
+        
+
+            
+        
+
+public static implicit operator MoviesContext(Movies v)
         {
             throw new NotImplementedException();
         }

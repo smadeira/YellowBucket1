@@ -59,6 +59,7 @@ namespace YellowBucket1.Models
 
         public ICollection<Wishlists>? Wishlists { get; set; }
         public ICollection<CustomerReviews>? CustomerReviews { get; set; }
+        public ICollection<Passwords>? Passwords { get; set; }
 
     }
 #nullable disable
