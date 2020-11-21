@@ -300,6 +300,36 @@ namespace YellowBucket1.Migrations
                     b.ToTable("MoviesGenres");
                 });
 
+            modelBuilder.Entity("YellowBucket1.Models.Passwords", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("varchar(128)")
+                        .HasMaxLength(128);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("CustomersID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("varchar(128)")
+                        .HasMaxLength(128);
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Username");
+
+                    b.HasIndex("CustomersID");
+
+                    b.ToTable("Passwords");
+                });
+
             modelBuilder.Entity("YellowBucket1.Models.Rentals", b =>
                 {
                     b.Property<int>("ID")
@@ -420,6 +450,13 @@ namespace YellowBucket1.Migrations
                         .HasForeignKey("MoviesID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("YellowBucket1.Models.Passwords", b =>
+                {
+                    b.HasOne("YellowBucket1.Models.Customers", "Customers")
+                        .WithMany("Passwords")
+                        .HasForeignKey("CustomersID");
                 });
 
             modelBuilder.Entity("YellowBucket1.Models.Rentals", b =>

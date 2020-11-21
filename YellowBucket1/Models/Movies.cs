@@ -21,7 +21,6 @@ namespace YellowBucket1.Models
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
         [MaxLength(8)]
         [Column(TypeName = "varchar(8)")]
         public string? Rating { get; set; }
