@@ -4,7 +4,9 @@
 @{
     ViewData["Title"] = "Details";
 }
-
+@{
+    var genres = Model.Movies.MoviesGenres.Select(m => m.Genres.Name);
+}
 <h1>Details</h1>
 
 <div>
@@ -16,6 +18,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Movies.Title)
+        </dd>
+        <dt class="col-sm-2">
+            Genres
+        </dt>
+        <dd class="col-sm-10">
+            @String.Join(", ", genres)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Movies.ReleaseDate)

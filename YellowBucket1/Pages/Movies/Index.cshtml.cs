@@ -23,7 +23,7 @@ namespace YellowBucket1.Pages.Movies
 
         public async Task OnGetAsync()
         {
-            Movies = await _context.Movies.ToListAsync();
+            Movies = await _context.Movies.Include("MoviesGenres.Genres").ToListAsync();
         }
     }
 }

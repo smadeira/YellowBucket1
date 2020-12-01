@@ -3,23 +3,21 @@
 
 
 <h1 style="text-align:center">@Html.DisplayFor(model => model.Movies.Title)</h1>
+
+@{ 
+    var genres = Model.Movies.MoviesGenres.Select(m => m.Genres.Name);
+}
+
 <div class="container">
     <div class="row">
         <div class="col col-4">
             <img src="@Html.DisplayFor(model => model.Movies.CoverPhoto)" alt="@Html.DisplayNameFor(model => model.Movies.Title)" style="width:100%;height:auto">
         </div>
         <div class="col col-8">
-            @*   fix genre list
-        <p>Genres: </p>
-        <div class="flex-container">
-            @foreach (var item in )
-            {
-                <div class="column">
-                    <p>@Html.DisplayFor(modelItem => item.Genres)</p>
-                </div>
-            }
-        </div>
-            *@
+            <div class="row mt-1">
+                Genres: 
+                @String.Join(", ", genres)
+            </div>
             <div class="row mt-3">
                 <div class="col">
                     @Html.DisplayFor(model => model.Movies.Description)
@@ -64,7 +62,18 @@
             </div>
             <div class="row mt-4">
                 <div class="col">
-                    *Average Rating Goes here*
+                    @{int movieCount = 0; decimal kernals = 0; }
+                    @foreach (var review in Model.Movies.CustomerReviews)
+                    {
+                        if (review.MoviesID == Model.Movies.ID)
+                        {
+                            movieCount++;
+                            kernals = kernals + (decimal)review.Kernals;
+                        }
+                    }
+                    @{ if (movieCount != 0)
+                        {  kernals = kernals / movieCount;} }                       
+                    Customer Rating: @(movieCount != 0? kernals.ToString("n1"):"Not yet rated")
                 </div>                
             </div>
             <div class="row mt-3">

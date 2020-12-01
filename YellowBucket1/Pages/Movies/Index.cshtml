@@ -17,6 +17,9 @@
                 @Html.DisplayNameFor(model => model.Movies[0].Title)
             </th>
             <th>
+                Genres
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Movies[0].ReleaseDate)
             </th>
             <th>
@@ -55,9 +58,14 @@
     <tbody>
         @foreach (var item in Model.Movies)
         {
+             var genres = item.MoviesGenres.Select(m => m.Genres.Name);
+
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @String.Join(", ", genres)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ReleaseDate)

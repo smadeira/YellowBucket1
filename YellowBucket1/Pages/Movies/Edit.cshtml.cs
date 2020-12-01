@@ -19,18 +19,21 @@ namespace YellowBucket1.Pages.Movies
         {
             _context = context;
         }
+        [BindProperty]
+        public int GenresID { get; set; }
 
         [BindProperty]
         public YellowBucket1.Models.Movies Movies { get; set; }
-
+        public List<Genres> Genres { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
+            Genres = _context.Genres.ToList();
 
-            Movies = await _context.Movies.FirstOrDefaultAsync(m => m.ID == id);
+            Movies = await _context.Movies.Include("MoviesGenres.Genres").FirstOrDefaultAsync(m => m.ID == id);
 
             if (Movies == null)
             {

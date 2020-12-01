@@ -14,24 +14,32 @@
     @foreach (var review in Model.Movie.CustomerReviews)
     {
         <div class="row">
-            <div class="card text-center col-8">
-                <div class="card-header" style="margin:0 !important;">
-                    <p>
-                        @review.Kernals Kernal review from customer @review.Customer.FirstName @review.Customer.LasttName.Substring(0, 1)
-                    </p>
-                </div>
-                <div class="card-body">
-                    <p>
-                        @review.Review
-                    </p>
+            <div class="col-2">
 
-                </div>
-                <div class="card-footer" style="margin:0 !important;">
-                    <p>
-                        Reviewed on @review.CreatedAt
-                    </p>
+            </div>
+            <div class="col-8">
+                <div class="card" style="max-width:none">
+                    <div class="card-header" style="margin:0 !important;">
+                        <p>
+                            @review.Kernals Kernal review from customer @review.Customer.FirstName @review.Customer.LasttName.Substring(0, 1)
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            @review.Review
+                        </p>
+
+                    </div>
+                    <div class="card-footer" style="margin:0 !important;">
+                        <p>
+                            Reviewed on @review.CreatedAt
+                        </p>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+
         </div>
     }
 </div>
