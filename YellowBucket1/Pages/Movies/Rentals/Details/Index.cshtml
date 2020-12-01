@@ -1,0 +1,94 @@
+﻿@page
+@model YellowBucket1.Pages.Movies.Rentals.DetailsModel
+
+
+<h1 style="text-align:center">@Html.DisplayFor(model => model.Movies.Title)</h1>
+
+@{ 
+    var genres = Model.Movies.MoviesGenres.Select(m => m.Genres.Name);
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col col-4">
+            <img src="@Html.DisplayFor(model => model.Movies.CoverPhoto)" alt="@Html.DisplayNameFor(model => model.Movies.Title)" style="width:100%;height:auto">
+        </div>
+        <div class="col col-8">
+            <div class="row mt-1">
+                Genres: 
+                @String.Join(", ", genres)
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    @Html.DisplayFor(model => model.Movies.Description)
+                </div>             
+            </div>
+            <div class="row mt-4">
+            </div>
+            <div class="row mt-5">
+                <div class="col col-3">
+                    Rating: @Html.DisplayFor(model => model.Movies.Rating)
+                </div>
+                <div class="col col-4">
+
+                </div>
+                <div class="col col-3">
+                    Length: @Html.DisplayFor(model => model.Movies.Length) minutes
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    Available on:
+                </div>                
+            </div>
+            <div class="row mt-3">
+                <div class="col col-2">
+                    @Html.DisplayFor(model => model.Movies.IsBluRay) BluRay
+                </div>
+                <div class="col col-2">
+                    @Html.DisplayFor(model => model.Movies.IsDVD) DVD
+                </div>
+            </div>            
+            <div class="row mt-3">
+                <div class="col col-3">
+                    Price: @Html.DisplayFor(model => model.Movies.Price)
+                </div>
+                <div class="col col-4">
+
+                </div>
+                <div class="col col-3">
+                    Date Released: @Html.DisplayFor(model => model.Movies.ReleaseDate)
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    @{int movieCount = 0; decimal kernals = 0; }
+                    @foreach (var review in Model.Movies.CustomerReviews)
+                    {
+                        if (review.MoviesID == Model.Movies.ID)
+                        {
+                            movieCount++;
+                            kernals = kernals + (decimal)review.Kernals;
+                        }
+                    }
+                    @{ if (movieCount != 0)
+                        {  kernals = kernals / movieCount;} }                       
+                    Customer Rating: @(movieCount != 0? kernals.ToString("n1"):"Not yet rated")
+                </div>                
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <a asp-page="./Reviews" asp-route-id="@Model.Movies.ID"> Add/View Reviews</a>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-page="/Movies/Rentals/Index">Back to List</a>
+    <span style="float:right;">
+        <button type="button">Add to Cart</button>
+    </span>
+</div>

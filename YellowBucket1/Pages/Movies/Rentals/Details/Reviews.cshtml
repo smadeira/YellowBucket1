@@ -1,0 +1,98 @@
+﻿@page
+@model YellowBucket1.ReviewsModel
+
+@{
+    ViewData["Title"] = "Reviews";
+}
+
+<style>
+    textarea{resize:none;}
+</style>
+<h4 style="text-align:center">Customer Reviews for @Html.DisplayFor(model => model.Movie.Title)</h4>
+
+<div style="overflow-y:scroll; overflow-x:hidden; max-height:350px;" >
+    @foreach (var review in Model.Movie.CustomerReviews)
+    {
+        <div class="row">
+            <div class="col-2">
+
+            </div>
+            <div class="col-8">
+                <div class="card" style="max-width:none">
+                    <div class="card-header" style="margin:0 !important;">
+                        <p>
+                            @review.Kernals Kernal review from customer @review.Customer.FirstName @review.Customer.LasttName.Substring(0, 1)
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            @review.Review
+                        </p>
+
+                    </div>
+                    <div class="card-footer" style="margin:0 !important;">
+                        <p>
+                            Reviewed on @review.CreatedAt
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+
+        </div>
+    }
+</div>
+
+<div class="row">
+    <div class="col-3">
+
+    </div>
+    <div class="col-6 text-center">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" value="2" asp-for="CustomerReviews.CustomersID" class="form-control" asp-items="ViewBag.CustomersId" />
+                @*<input type="hidden" value="@customer.ID" asp-for="CustomerReviews.CustomersID" class="form-control" asp-items="ViewBag.CustomersID"/>*@
+            </div>
+            <div class="form-group">
+                <input type="hidden" value="@Model.Movie.ID" asp-for="CustomerReviews.MoviesID" class="form-control" asp-items="ViewBag.MoviesID" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Add Your Own Review:</label>
+                <textarea rows="5" maxlength="4096" asp-for="CustomerReviews.Review" class="form-control"></textarea>
+                <span asp-validation-for="CustomerReviews.Review" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-left:35%; margin-right:35%;">
+                <label asp-for="CustomerReviews.Kernals" class="control-label"></label>
+                <input asp-for="CustomerReviews.Kernals" class="form-control" />
+                <span asp-validation-for="CustomerReviews.Kernals" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="CustomerReviews.DeletedAt" class="control-label"></label>
+                <input asp-for="CustomerReviews.DeletedAt" class="form-control" />
+                <span asp-validation-for="CustomerReviews.DeletedAt" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="hidden" value="@DateTime.Now" asp-for="CustomerReviews.CreatedAt" class="form-control" />
+                <span asp-validation-for="CustomerReviews.CreatedAt" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <input type="hidden" value="@DateTime.Now" asp-for="CustomerReviews.UpdatedAt" class="form-control" />
+                <span asp-validation-for="CustomerReviews.UpdatedAt" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-page="Index" asp-route-id="@Model.Movie.ID">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

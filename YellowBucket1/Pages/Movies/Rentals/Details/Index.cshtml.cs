@@ -28,7 +28,7 @@ namespace YellowBucket1.Pages.Movies.Rentals
                 return NotFound();
             }
 
-            Movies = await _context.Movies.FirstOrDefaultAsync(m => m.ID == id);
+            Movies = await _context.Movies.Include(m => m.CustomerReviews).Include("MoviesGenres.Genres").FirstOrDefaultAsync(m => m.ID == id);
 
             if (Movies == null)
             {

@@ -4,7 +4,9 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
+@{ 
+                 var genres = Model.Movies.MoviesGenres.Select(m => m.Genres.Name);
+}
 <h1>Edit</h1>
 
 <h4>Movies</h4>
@@ -18,6 +20,11 @@
                 <label asp-for="Movies.Title" class="control-label"></label>
                 <input asp-for="Movies.Title" class="form-control" />
                 <span asp-validation-for="Movies.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Genre</label>
+                <select class="form-control" asp-for="GenresID" asp-items="@(new SelectList(Model.Genres, "ID", "Name"))"></select>
+                <span asp-validation-for="Movies.MoviesGenres" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Movies.ReleaseDate" class="control-label"></label>

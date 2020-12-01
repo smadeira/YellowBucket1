@@ -34,7 +34,7 @@ namespace YellowBucket1.Models
         [Required]
         public DateTime UpdatedAt { get; set; }
 
-
+        public virtual Customers Customer { get; set; }
     }
 #nullable disable
 }

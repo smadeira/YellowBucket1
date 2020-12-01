@@ -48,6 +48,11 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
@@ -592,6 +597,10 @@ pre code {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+}
+
+.top-buffer {
+    margin-top: 20px;
 }
 
 .no-gutters {

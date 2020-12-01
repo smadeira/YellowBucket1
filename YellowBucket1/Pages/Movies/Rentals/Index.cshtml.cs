@@ -24,7 +24,6 @@ namespace YellowBucket1.Pages.Movies.Rentals
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
 
-       
         public async Task OnGetAsync()
         {
             var movies = from m in _context.Movies
