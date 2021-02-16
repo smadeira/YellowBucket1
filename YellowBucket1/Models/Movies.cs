@@ -21,7 +21,6 @@ namespace YellowBucket1.Models
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
         [MaxLength(8)]
         [Column(TypeName = "varchar(8)")]
         public string? Rating { get; set; }
@@ -47,9 +46,9 @@ namespace YellowBucket1.Models
         public string? CoverPhoto { get; set; } 
         public DateTime? DeletedAt { get; set; }
         [Required]
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
         [Required]
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
 
         public ICollection<Wishlists>? Wishlists { get; set; }
         public ICollection<CustomerReviews>? CustomerReviews { get; set; }

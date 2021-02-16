@@ -385,7 +385,7 @@ namespace YellowBucket1.Migrations
 
             modelBuilder.Entity("YellowBucket1.Models.CustomerReviews", b =>
                 {
-                    b.HasOne("YellowBucket1.Models.Customers", null)
+                    b.HasOne("YellowBucket1.Models.Customers", "Customer")
                         .WithMany("CustomerReviews")
                         .HasForeignKey("CustomersID")
                         .OnDelete(DeleteBehavior.Cascade)

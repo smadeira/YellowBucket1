@@ -1,0 +1,67 @@
+﻿@page
+@model YellowBucket1.InventoryDetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Inventories</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventories.KiosksID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventories.KiosksID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventories.NumberDVD)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventories.NumberDVD)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventories.NumberBluRay)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventories.NumberBluRay)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventories.NumberDVDRentedFrom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventories.NumberDVDRentedFrom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventories.NumberBluRayRentedFrom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventories.NumberBluRayRentedFrom)
+        </dd>
+        @*<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventories.DeletedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventories.DeletedAt)
+        </dd>*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventories.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventories.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inventories.UpdatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inventories.UpdatedAt)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Inventories.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
