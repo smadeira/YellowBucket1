@@ -40,7 +40,7 @@ namespace YellowBucket1.Pages.Movies
             {
                 return Page();
             }
-            
+            Genres = _context.Genres.ToList();
             _context.Movies.Add(Movies);
             await _context.SaveChangesAsync();
             Movies.MoviesGenres = new List<MoviesGenres>();

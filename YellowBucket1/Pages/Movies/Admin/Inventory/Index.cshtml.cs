@@ -19,12 +19,10 @@ namespace YellowBucket1
             _context = context;
         }
 
-        public IList<Inventories> Inventories { get;set; }
         public IList<Kiosks> Kiosks { get; set; }
 
         public async Task OnGetAsync()
         {
-            Inventories = await _context.Inventories.ToListAsync();
             Kiosks = await _context.Kiosks.ToListAsync();
         }
     }

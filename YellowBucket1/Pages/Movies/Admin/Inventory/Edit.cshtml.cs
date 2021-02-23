@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using YellowBucket1.Data;
 using YellowBucket1.Models;
@@ -20,9 +19,6 @@ namespace YellowBucket1
             _context = context;
         }
 
-        [BindProperty]
-        public Inventories Inventories { get; set; }
-
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,14 +26,13 @@ namespace YellowBucket1
                 return NotFound();
             }
 
-            Inventories = await _context.Inventories.FirstOrDefaultAsync(m => m.ID == id);
+            Inventories = await _context.Inventories.Include(m => m.Movie).FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Inventories == null)
-            {
-                return NotFound();
-            }
             return Page();
         }
+
+        [BindProperty]
+        public Inventories Inventories { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.

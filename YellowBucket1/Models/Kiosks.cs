@@ -44,6 +44,7 @@ namespace YellowBucket1.Models
         public DateTime UpdatedAt { get; set; }
 
         public ICollection<Rentals>? Rentals { get; set; }
+        public ICollection<Inventories>? Inventories { get; set; }
 
 
     }
