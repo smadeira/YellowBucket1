@@ -16,35 +16,15 @@ using System.Threading;
 
 namespace YellowBucket1 {
     public class Program {
-        /* private static System.Timers.Timer aTimer; */
         
         public static void Main(string[] args) {
-            /* MyProcess.Program(); */
-            /* CreateDbIfNotExists(host); */
-
-            /* Stopwatch stopwatch = Stopwatch.StartNew(); */
-            /* while (true) */
-            /* { */
-            /*     //some other processing to do STILL POSSIBLE */
-            /*    if (stopwatch.ElapsedMilliseconds >= 240000) */
-            /*     { */
-            /*         break; */
-            /*     } */
-            /*     Thread.Sleep(4000); //so processor can rest for a while */
-            /* } */
             var host = CreateHostBuilder(args).Build();
             host.Run();
-            /* var context = new MoviesContext(new DbContextOptions<MoviesContext>()); */
-            
-            /*    var count = context.Movies.FromSqlRaw */
-            /*   ("SELECT COUNT(*) FROM dbo.Movies"); */
         }
 
         private static void SetTimer(string[] args) {
             System.Timers.Timer aTimer;
-            /* Create a timer with a two second interval. */
             aTimer = new System.Timers.Timer(240000);
-            /* Hook up the Elapsed event for the timer. */ 
             aTimer.Elapsed += (OnTimedEvent);
             aTimer.AutoReset = false;
             aTimer.Enabled = true;
