@@ -1,0 +1,20 @@
+﻿@page
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>!!Administration Only!!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col col-4">
+            <a asp-page="/Movies/Admin/Movies/Index">Adjust Movies</a>
+        </div>
+        <div class="col col-4">
+            <a asp-page="/Movies/Admin/Kiosks/Index">Adjust Kiosk Locations</a>
+        </div>
+        <div class="col col-4">
+            <a asp-page="/Movies/Admin/Inventory/Index">Adjust Kiosk Inventory</a>
+        </div>
+    </div>
+</div>
+

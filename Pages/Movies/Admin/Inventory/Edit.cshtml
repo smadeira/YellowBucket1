@@ -1,0 +1,45 @@
+﻿@page
+@model YellowBucket1.InventoryEditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<div>
+    <h4>Edit Inventory for @Model.Inventories.Movie.Title</h4>
+    <hr />
+    <div class="row">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Inventories.NumberBluRay" class="control-label"></label>
+                <input asp-for="Inventories.NumberBluRay" class="form-control" />
+                <span asp-validation-for="Inventories.NumberBluRay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventories.NumberDVD" class="control-label"></label>
+                <input asp-for="Inventories.NumberDVD" class="form-control" />
+                <span asp-validation-for="Inventories.NumberDVD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" value="@DateTime.Now" asp-for="Inventories.UpdatedAt" class="form-control" />
+                <span asp-validation-for="Inventories.UpdatedAt" class="text-danger"></span>
+                <input type="hidden" value="@Model.Inventories.ID" asp-for="Inventories.ID" class="form-control" />
+                <span asp-validation-for="Inventories.ID" class="text-danger"></span>
+                <input type="hidden" value="@Model.Inventories.MoviesID" asp-for="Inventories.MoviesID" class="form-control" />
+                <span asp-validation-for="Inventories.MoviesID" class="text-danger"></span>
+                <input type="hidden" value="@Model.Inventories.KiosksID" asp-for="Inventories.KiosksID" class="form-control" />
+                <span asp-validation-for="Inventories.KiosksID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to Kiosk List</a>
+</div>
