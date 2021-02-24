@@ -1,0 +1,52 @@
+﻿@page
+@model YellowBucket1.InventoriesCreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Kiosks</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Movie Title</label>
+                <select class="form-control" asp-for="Inventories.MoviesID" asp-items="@(new SelectList(Model.Movies, "ID", "Title"))"></select>
+                <span asp-validation-for="Inventories.MoviesID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventories.NumberBluRay" class="control-label"></label>
+                <input asp-for="Inventories.NumberBluRay" class="form-control" />
+                <span asp-validation-for="Inventories.NumberBluRay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inventories.NumberDVD" class="control-label"></label>
+                <input asp-for="Inventories.NumberDVD" class="form-control" />
+                <span asp-validation-for="Inventories.NumberDVD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" value="@DateTime.Now" asp-for="Inventories.CreatedAt" class="form-control" />
+                <span asp-validation-for="Inventories.CreatedAt" class="text-danger"></span>
+                <input type="hidden" value="@DateTime.Now" asp-for="Inventories.UpdatedAt" class="form-control" />
+                <span asp-validation-for="Inventories.UpdatedAt" class="text-danger"></span>
+                <input type="hidden" value="@Model.KioskID" asp-for="Inventories.KiosksID" class="form-control" />
+                <span asp-validation-for="Inventories.KiosksID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to Kiosk List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

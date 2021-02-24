@@ -1,0 +1,145 @@
+﻿@page
+@model YellowBucket1.InventoryIndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Select Kiosk to see inventory</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Kiosks[0].Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kiosks[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kiosks[0].Address2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kiosks[0].City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kiosks[0].State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kiosks[0].Zip)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Kiosks[0].DeletedAt)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kiosks[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kiosks[0].UpdatedAt)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Kiosks)
+        {
+            <tr>
+                <td>
+                    <a asp-page="Details" asp-route-id="@item.ID">@item.Location</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zip)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.DeletedAt)
+                    </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedAt)
+                </td>*@
+                <td>
+
+
+
+
+                    @*<table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Inventories[0].KiosksID)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Inventories[0].NumberDVD)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Inventories[0].NumberBluRay)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Inventories[0].NumberDVDRentedFrom)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Inventories[0].NumberBluRayRentedFrom)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Inventories[0].DeletedAt)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Inventories[0].CreatedAt)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Inventories[0].UpdatedAt)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        @foreach (var item in Model.Inventories) {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.KiosksID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NumberDVD)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NumberBluRay)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NumberDVDRentedFrom)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NumberBluRayRentedFrom)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DeletedAt)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UpdatedAt)
+                                    </td>*@
+                <td>
+                    @*<a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

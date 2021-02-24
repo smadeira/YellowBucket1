@@ -1,0 +1,79 @@
+﻿@page
+@model YellowBucket1.InventoryDetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Inventory for @Model.Kiosk.Location</h1>
+
+<h4><a asp-page="Create" asp-route-id="@Model.Kiosk.ID">Add New Movie</a></h4>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventories.Movie.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventories.NumberBluRay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventories.NumberDVD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventories.NumberBluRayRentedFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventories.NumberDVDRentedFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventories.CreatedAt)
+            </th>
+           <th>
+               @Html.DisplayNameFor(model => model.Inventories.UpdatedAt)
+           </th>
+           <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Kiosk.Inventories)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Movie.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberBluRay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberDVD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberBluRayRentedFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberDVDRentedFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedAt)
+                </td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@item.ID">Edit Movie Inventory</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-page="./Index">Kiosks List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
