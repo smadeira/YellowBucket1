@@ -21,7 +21,7 @@ namespace YellowBucket1.Models {
 
         [MaxLength(128)]
         [Column(TypeName = "varchar(128)")]
-        public string Address2 { get; set; }
+        public string? Address2 { get; set; }
 
         [MaxLength(128)]
         [Column(TypeName = "varchar(128)")]

@@ -44,9 +44,9 @@ namespace YellowBucket1.Models {
         public string? CoverPhoto { get; set; } 
         public DateTime? DeletedAt { get; set; }
         [Required]
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
         [Required]
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
 
         public ICollection<Wishlists>? Wishlists { get; set; }
         public ICollection<CustomerReviews>? CustomerReviews { get; set; }

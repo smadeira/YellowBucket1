@@ -194,7 +194,6 @@ namespace YellowBucket1.Migrations
                         .HasMaxLength(128);
 
                     b.Property<string>("Address2")
-                        .IsRequired()
                         .HasColumnType("varchar(128)")
                         .HasMaxLength(128);
 
@@ -243,7 +242,8 @@ namespace YellowBucket1.Migrations
                         .HasColumnType("varchar(128)")
                         .HasMaxLength(128);
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedAt")
@@ -277,7 +277,8 @@ namespace YellowBucket1.Migrations
                         .HasColumnType("varchar(128)")
                         .HasMaxLength(128);
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.HasKey("ID");
@@ -415,7 +416,7 @@ namespace YellowBucket1.Migrations
 
             modelBuilder.Entity("YellowBucket1.Models.CustomerReviews", b =>
                 {
-                    b.HasOne("YellowBucket1.Models.Customers", null)
+                    b.HasOne("YellowBucket1.Models.Customers", "Customer")
                         .WithMany("CustomerReviews")
                         .HasForeignKey("CustomersID")
                         .OnDelete(DeleteBehavior.Cascade)
