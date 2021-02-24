@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YellowBucket1.Models
-{
+namespace YellowBucket1.Models {
 #nullable enable
-    public class Passwords
-    {
+    public class Passwords {
         [Required, MaxLength(128)]
         [Column(TypeName = "varchar(128)")]
         public string Username { get; set; }

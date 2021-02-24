@@ -5,12 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
-namespace YellowBucket1.Models
-{
+namespace YellowBucket1.Models {
 #nullable enable
-    public class Wishlists
-    {
+    public class Wishlists {
         [Required]
         public int ID { get; set; }
         [Required]

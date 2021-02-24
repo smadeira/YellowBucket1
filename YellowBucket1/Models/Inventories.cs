@@ -5,11 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YellowBucket1.Models
-{
+namespace YellowBucket1.Models {
 #nullable enable
-    public class Inventories
-    {
+    public class Inventories {
         [Required]
         public int ID { get; set; }
         [Required]
@@ -32,8 +30,6 @@ namespace YellowBucket1.Models
         public DateTime UpdatedAt { get; set; }
 
         public ICollection<Rentals>? Rentals { get; set; }
-
-
     }
 #nullable disable
 }

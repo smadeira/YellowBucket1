@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YellowBucket1.Models
-{
+namespace YellowBucket1.Models {
 #nullable enable
-    public class Movies
-    {
+    public class Movies {
         [Required]
         public int ID { get; set; }
 
@@ -29,12 +27,12 @@ namespace YellowBucket1.Models
         [Column(TypeName = "decimal(18, 2)")]
         public decimal? Price { get; set; }
 
-
         [MaxLength(4096)]
         [Column(TypeName = "varchar(4096)")]
         public string? Description { get; set; }
 
-        //Need to clean up the validation by removing the ability to remove null values once the pages are created
+        /* Need to clean up the validation by removing the ability
+           to remove null values once the pages are created */
         public int? Length { get; set; }
         
         [Required]

@@ -5,11 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YellowBucket1.Models
-{
+namespace YellowBucket1.Models {
 #nullable enable
-    public class MoviesGenres
-    {
+    public class MoviesGenres {
         [Required]
         public int MoviesID { get; set; }
 
@@ -19,8 +17,6 @@ namespace YellowBucket1.Models
         
         public Movies? Movies { get; set; }
         public Genres? Genres { get; set; }
-
-
     }
 #nullable disable
 }

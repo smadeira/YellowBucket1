@@ -5,15 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
-namespace YellowBucket1.Models
-{
+namespace YellowBucket1.Models {
 #nullable enable
-    public class Customers
-    {
+    public class Customers {
         [Required]
         public int ID { get; set; }
-
 
         [MaxLength(128)]
         [Column(TypeName = "varchar(128)")]

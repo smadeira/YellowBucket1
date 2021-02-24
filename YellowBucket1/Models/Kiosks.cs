@@ -5,14 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YellowBucket1.Models
-{
+namespace YellowBucket1.Models {
 #nullable enable
-    public class Kiosks
-    {
+    public class Kiosks {
         [Required]
         public int ID { get; set; }
-
 
         [Required, MaxLength(128)]
         [Column(TypeName = "varchar(128)")]
@@ -44,8 +41,6 @@ namespace YellowBucket1.Models
         public DateTime UpdatedAt { get; set; }
 
         public ICollection<Rentals>? Rentals { get; set; }
-
-
     }
 #nullable disable
 }
