@@ -13,11 +13,15 @@ using YellowBucket1.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Timers;
 using System.Threading;
+//using Microsoft.AspNetCore.Identity;
 
 namespace YellowBucket1 {
     public class Program {
         
         public static void Main(string[] args) {
+            //var passwordHasher = new PasswordHasher<string>();
+            //Console.WriteLine(passwordHasher.HashPassword(null, "strong password"));
+            //Console.ReadLine();
             var host = CreateHostBuilder(args).Build();
             host.Run();
         }

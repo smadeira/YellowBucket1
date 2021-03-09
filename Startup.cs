@@ -9,9 +9,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using YellowBucket1.Data;
 using System.Diagnostics;
 using System.Threading;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace YellowBucket1 {
     public class Startup {
@@ -23,6 +26,18 @@ namespace YellowBucket1 {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
+            services.Configure<CookiePolicyOptions>(options => {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions => {
+                cookieOptions.LoginPath = "/";
+            });
+
+            services.AddMvc().AddRazorPagesOptions(options => {
+                options.Conventions.AuthorizeFolder("/admin");
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddRazorPages();
 
             services.AddDbContext<MoviesContext>(options =>
@@ -46,6 +61,7 @@ namespace YellowBucket1 {
             app.UseRouting();
 
             app.UseAuthorization();
+            //app.UseMvc();
 
             app.UseEndpoints(endpoints =>
             {
