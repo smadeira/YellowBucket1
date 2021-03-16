@@ -1,0 +1,78 @@
+﻿@page
+@model YellowBucket1.UsersDetailsModel
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<h1>Details for @Model.Users.FirstName @Model.Users.LasttName</h1>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col col-8">
+            <div class="row">
+                Email:
+                <br />
+                @Model.Users.Email
+            </div>
+            <div class="row">
+                <br />
+            </div>
+            <div class="row">
+                Address:
+                <br />
+                @Model.Users.Address
+                <br />
+                @if (Model.Users.Address2 != null)
+                {
+                    @Model.Users.Address2
+                    <br />
+                }
+                @Model.Users.City, @Model.Users.State @Model.Users.Zip
+            </div>
+            <div class="row">
+                <br />
+            </div>
+            <div class="row">
+                Account created on:
+                <br />
+                @Model.Users.CreatedAt
+            </div>
+            <div class="row">
+                <br />
+            </div>
+            <div class="row">
+                Last updated on:
+                <br />
+                @Model.Users.UpdatedAt
+            </div>
+            <div class="row">
+                <br />
+            </div>
+            <div class="row">
+                <a asp-page="./Wishlist" asp-route-id="@Model.Users.ID">View Users Wishlist</a>
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <a asp-page="./Reviews" asp-route-id="@Model.Users.ID">View Users Movie Reviews</a>
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <a asp-page="./Rentals" asp-route-id="@Model.Users.ID">View Users Rental History</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">User List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

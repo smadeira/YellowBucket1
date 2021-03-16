@@ -2,7 +2,7 @@
 @model YellowBucket1.Pages.Movies.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Movie Details";
 }
 @{
     var genres = Model.Movies.MoviesGenres.Select(m => m.Genres.Name);

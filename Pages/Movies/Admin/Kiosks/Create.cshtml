@@ -2,7 +2,7 @@
 @model YellowBucket1.KioskCreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Kiosk Location";
 }
 
 <h1>Create</h1>
@@ -43,23 +43,12 @@
                 <input asp-for="Kiosks.Zip" class="form-control" />
                 <span asp-validation-for="Kiosks.Zip" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
-                <label asp-for="Kiosks.DeletedAt" class="control-label"></label>
-                <input asp-for="Kiosks.DeletedAt" class="form-control" />
-                <span asp-validation-for="Kiosks.DeletedAt" class="text-danger"></span>
-            </div>*@
         <div class="form-group">
-            @*<label asp-for="Kiosks.CreatedAt" class="control-label"></label>*@
             <input type="hidden" value="@DateTime.Now" asp-for="Kiosks.CreatedAt" class="form-control" />
             <span asp-validation-for="Kiosks.CreatedAt" class="text-danger"></span>
             <input type="hidden" value="@DateTime.Now" asp-for="Kiosks.UpdatedAt" class="form-control" />
             <span asp-validation-for="Kiosks.UpdatedAt" class="text-danger"></span>
         </div>
-            @*<div class="form-group">
-                <label asp-for="Kiosks.UpdatedAt" class="control-label"></label>
-                <input asp-for="Kiosks.UpdatedAt" class="form-control" />
-                <span asp-validation-for="Kiosks.UpdatedAt" class="text-danger"></span>
-            </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -68,7 +57,7 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">Kiosk List</a>
 </div>
 
 @section Scripts {
